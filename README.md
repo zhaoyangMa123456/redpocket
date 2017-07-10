@@ -1,6 +1,9 @@
 # my-project
 
-> A Vue.js project
+> 涉及内容：
+> 框架：vue、vue-resource
+> 构建：webpack
+> css：css3动画、less
 
 ## Build Setup
 
@@ -19,3 +22,20 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
