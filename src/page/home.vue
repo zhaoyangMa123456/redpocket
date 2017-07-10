@@ -43,8 +43,8 @@
   Vue.use(VueSorce);
   import rem from '../config/rem'
   import pocket from '../components/pocket.vue'
-  import { onlineBase } from '../config/env'
 
+  import { onlineBase } from '../config/env'
 
   export default{
     name:'home',
@@ -71,10 +71,12 @@
     },
     methods:{
       openOne(index){
+
         var URL = onlineBase+"?orderid="+this.listData[index].orderid;
         Vue.http.get(URL).then(
           (successData) => {
             if(successData.body.state == 1){
+
               this.pocketVals.backamount = this.listData[index].backamount;
               this.pocketVals.p_backpoint  = (this.listData[index].p_backpoint)? this.listData[index].p_backpoint:0;
               this.showpocket = true;
@@ -90,6 +92,7 @@
                 _this.bein = true;
                 _this.closePocket();
               },1600)
+
             }else{
                 console.log(successData.body)
             }
@@ -98,6 +101,7 @@
           },
           (fileData) => {console.log(fileData);}
         );
+
       },
       openAll(){
           if(this.canopenAll){
@@ -109,11 +113,11 @@
                 allAmount.backamount += parseFloat(e.backamount);
                 allAmount.p_backpoint += parseFloat(e.p_backpoint);
               });
+
             var URL = onlineBase+"?take_id="+this.listData[0].take_id;
             Vue.http.get(URL).then(
               (successData) => {
                 if(successData.body.state == 1){
-
                   this.pocketVals.backamount = allAmount.backamount;
                   this.pocketVals.p_backpoint  = (allAmount.p_backpoint)? allAmount.p_backpoint:0;
                   this.showpocket = true;
@@ -126,7 +130,7 @@
                   setTimeout(function () {
                     _this.bein = true;
                     _this.closePocket();
-                  },1600);
+                  },1600)
                 }else{
                   console.log(successData.body)
                 }
@@ -145,11 +149,10 @@
         var r = window.location.search.substr(1).match(reg);
         if (r != null) return unescape(r[2]); return null;
       }
-
     },
     mounted(){
-      var userid = this.getQueryString('userid');
-      var URL = onlineBase+"?userid="+userid;
+      let userid = this.getQueryString('userid');
+      let URL = onlineBase+"?userid="+userid;
       Vue.http.get(URL).then(
         (successData) => {
             if(successData.body.state == 1){
@@ -166,7 +169,6 @@
         },
         (fileData) => {console.log(fileData);}
       );
-
     },
     watch:{
       listData(curVal,oldVal){
@@ -176,6 +178,7 @@
           this.btnShowActive = true;
         }
       }
+
     }
   }
 </script>
@@ -200,7 +203,6 @@
     min-height: 100%;
   }
   #listcontainer{
-    //position: relative;
     padding-top: 10/@r;
     padding-bottom: 80/@r;
     li{
@@ -255,6 +257,7 @@
     .btn{
       width:57/@r;
       height:23/@r;
+
       background: @green;
       border-radius: 3/@r;
       margin-top: 2/@r;
@@ -268,8 +271,8 @@
         transform-origin:center  center;
         color: @white;
         text-align: center;
-        //padding-top: 3.5/@r;
         height: 18/@r;
+        line-height:18/@r;
       }
     }
   }
@@ -310,5 +313,8 @@
     transition: 0.8s ease all;
     opacity:0;
   }
+
+
+
 
 </style>
