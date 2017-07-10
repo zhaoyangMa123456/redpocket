@@ -67,7 +67,6 @@
       }
     },
     components:{
-      //Topbar,
       pocket
     },
     methods:{
@@ -140,15 +139,16 @@
       },
       closePocket(){
         this.showpocket = false;
-      }
-    },
-    mounted(){
-      function getQueryString(name) {
+      },
+      getQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
         var r = window.location.search.substr(1).match(reg);
         if (r != null) return unescape(r[2]); return null;
       }
-      var userid = getQueryString('userid');
+
+    },
+    mounted(){
+      var userid = this.getQueryString('userid');
       var URL = onlineBase+"?userid="+userid;
       Vue.http.get(URL).then(
         (successData) => {
