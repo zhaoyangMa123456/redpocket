@@ -33,7 +33,7 @@
     },
     methods:{
       closePoc(){
-          this.$emit('closePocket',this.pocketVals.closeType);
+          this.$emit('closePocket');
       }
     }
   }
