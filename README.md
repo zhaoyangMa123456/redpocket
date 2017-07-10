@@ -1,9 +1,9 @@
 # VUE的APP嵌套红包页面
 
 > 涉及内容：
-> 框架：vue、vue-resource
-> 构建：webpack
-> css：css3动画、less
+> 框架：vue、vue-resource；
+> 构建：webpack；
+> css：css3动画、less；
 
 ## Build Setup
 
