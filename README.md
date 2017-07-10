@@ -1,4 +1,4 @@
-# my-project
+# VUE的APP嵌套红包页面
 
 > 涉及内容：
 > 框架：vue、vue-resource
